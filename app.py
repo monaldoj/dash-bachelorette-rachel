@@ -1,15 +1,15 @@
 # Import required libraries
 import os
 #from random import randint
-
-import plotly.plotly as py
-from plotly.graph_objs import *
-
-import flask
-import dash
-from dash.dependencies import Input, Output, State, Event
-import dash_core_components as dcc
-import dash_html_components as html
+#
+#import plotly.plotly as py
+#from plotly.graph_objs import *
+#
+#import flask
+#import dash
+#from dash.dependencies import Input, Output, State, Event
+#import dash_core_components as dcc
+#import dash_html_components as html
 
 
 # Setup the app
@@ -31,6 +31,8 @@ import plotly.graph_objs as go
 from plotly.tools import FigureFactory as FF
 from datetime import datetime
 #plotly.tools.set_credentials_file()
+from flask import Flask
+
 
 def createFigure(passback):
     url = 'https://en.wikipedia.org/wiki/The_Bachelorette_(season_13)'
@@ -237,7 +239,8 @@ def createFigure(passback):
     
 
 
-app = dash.Dash()
+server=Flask('dash-bachelorette-rachel')
+app = dash.react.Dash('dash-bachelorette-rachel',server=server)
 
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
@@ -280,5 +283,5 @@ app.layout = html.Div(children=[
 
 # Run the Dash app
 if __name__ == '__main__':
-    #app.server.run(debug=True, threaded=True)
-    app.run_server(debug=True)
+    app.server.run(debug=True, threaded=True)
+    #app.run_server(debug=True)
