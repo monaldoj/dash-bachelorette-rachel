@@ -17,7 +17,7 @@ import plotly.plotly as py
 import plotly.graph_objs as go 
 from plotly.tools import FigureFactory as FF
 from datetime import datetime
-plotly.tools.set_credentials_file(username='monaldoj', api_key='ghEz3skKZj38YdZ9v8Q3')
+plotly.tools.set_credentials_file()
 
 def createFigure(passback):
     url = 'https://en.wikipedia.org/wiki/The_Bachelorette_(season_13)'
