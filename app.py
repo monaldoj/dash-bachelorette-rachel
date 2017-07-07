@@ -1,11 +1,23 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 28 23:31:17 2017
+# Import required libraries
+import os
+from random import randint
 
-@author: JM_JM
-"""
+import plotly.plotly as py
+from plotly.graph_objs import *
 
+import flask
+import dash
+from dash.dependencies import Input, Output, State, Event
+import dash_core_components as dcc
+import dash_html_components as html
+
+
+# Setup the app
+# Make sure not to change this file name or the variable names below,
+# the template is configured to execute 'server' on 'app.py'
+#server = flask.Flask(__name__)
+#server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+#app = dash.Dash(__name__, server=server)
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -17,7 +29,7 @@ import plotly.plotly as py
 import plotly.graph_objs as go 
 from plotly.tools import FigureFactory as FF
 from datetime import datetime
-plotly.tools.set_credentials_file()
+#plotly.tools.set_credentials_file()
 
 def createFigure(passback):
     url = 'https://en.wikipedia.org/wiki/The_Bachelorette_(season_13)'
@@ -262,7 +274,9 @@ app.layout = html.Div(children=[
     
 ])
 
+# Put your Dash code here
+
+
+# Run the Dash app
 if __name__ == '__main__':
-    app.run_server(debug=True)
-    
-    
+    app.server.run(debug=True, threaded=True)
