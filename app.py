@@ -170,7 +170,17 @@ def createFigure(passback):
     
     layout = go.Layout(
         barmode='stack',
-        title='Bachelor Performance (in draft order)'
+        title='Bachelor Performance (in draft order)',
+        autosize=False,
+        width=960,
+        height=800,    
+        margin=go.Margin(
+                            l=100,
+                            r=100,
+                            b=100,
+                            t=100,
+                            pad=5
+                        ),
     )
     
     if passback=='horizontalBarChart':
@@ -236,13 +246,13 @@ def createFigure(passback):
         fig = go.Figure(data=data, layout=layout)
         return fig
     
-    
-
-
+ 
 server=Flask('dash-bachelorette-rachel')
 app = dash.Dash('dash-bachelorette-rachel',server=server)
 
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+#app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+app.css.append_css({"external_url": "https://raw.githubusercontent.com/monaldoj/dash-bachelorette-rachel/master/dash-bachelorette.css"})
+
 
 app.layout = html.Div(children=[
     html.H1(children='Fantasy Bachelorette'),
