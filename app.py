@@ -250,8 +250,8 @@ def createFigure(passback):
 server=Flask('dash-bachelorette-rachel')
 app = dash.Dash('dash-bachelorette-rachel',server=server)
 
-#app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-app.css.append_css({"external_url": "https://raw.githubusercontent.com/monaldoj/dash-bachelorette-rachel/master/dash-bachelorette.css"})
+app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+#app.css.append_css({"external_url": "https://raw.githubusercontent.com/monaldoj/dash-bachelorette-rachel/master/dash-bachelorette.css"})
 
 
 app.layout = html.Div(children=[
