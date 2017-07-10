@@ -237,7 +237,17 @@ def createFigure(passback):
     
     layout = go.Layout(
         barmode='group',
-        title='Team Performance'
+        title='Team Performance',
+        autosize=False,
+        width=960,
+        height=800,    
+        margin=go.Margin(
+                            l=100,
+                            r=100,
+                            b=100,
+                            t=100,
+                            pad=5
+                        ),
     )
 
     if passback=='teamGroupedBarChart':
@@ -255,11 +265,13 @@ app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"
 
 
 app.layout = html.Div(children=[
-    html.H1(children='Fantasy Bachelorette'),
+    html.H1(children='Fantasy Bachelorette Scoreboard'),
 
     html.Div(children='''
         Here's the bachelorette web app.
     '''),
+             
+    html.Div("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto"),
 
     dcc.Graph(
 #        id='example-graph',
