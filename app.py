@@ -136,6 +136,14 @@ def createFigure(passback):
     
     if passback=='table':
         table = FF.create_table(teamDf)
+        table.layout.width=1000    
+#        table.layout.margin=go.Margin(
+#                            l=100,
+#                            r=100,
+#                            b=100,
+#                            t=100,
+#                            pad=5
+#                        )
         #py.iplot(table, filename='Rachel - Overall Ranking')
         return table
     
