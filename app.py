@@ -289,7 +289,7 @@ app.layout = html.Div(children=[
 #             
 #    html.Div("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto"),
 
-    dcc.Markdown(children=md_text)
+    dcc.Markdown(children=md_text),
 
     dcc.Graph(
 #        id='example-graph',
