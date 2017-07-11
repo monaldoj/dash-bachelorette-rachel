@@ -271,15 +271,25 @@ app = dash.Dash('dash-bachelorette-rachel',server=server)
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 #app.css.append_css({"external_url": "https://raw.githubusercontent.com/monaldoj/dash-bachelorette-rachel/master/dash-bachelorette.css"})
 
+md_text = """
+###Fantasy Bachelorette Scoreboard
+
+![Image of Rachel]
+(https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto)
+
+Here's the new and improved scoreboard app for this season of the Bachelorette!
+"""
 
 app.layout = html.Div(children=[
-    html.H1(children='Fantasy Bachelorette Scoreboard'),
+#    html.H1(children='Fantasy Bachelorette Scoreboard'),
+#
+#    html.Div(children='''
+#        Here's the bachelorette web app.
+#    '''),
+#             
+#    html.Div("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto"),
 
-    html.Div(children='''
-        Here's the bachelorette web app.
-    '''),
-             
-    html.Div("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto"),
+    dcc.Markdown(children=md_text)
 
     dcc.Graph(
 #        id='example-graph',
