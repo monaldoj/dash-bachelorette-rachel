@@ -1,3 +1,23 @@
+# Import required libraries
+import os
+#from random import randint
+#
+#import plotly.plotly as py
+#from plotly.graph_objs import *
+#
+#import flask
+#import dash
+#from dash.dependencies import Input, Output, State, Event
+#import dash_core_components as dcc
+#import dash_html_components as html
+
+
+# Setup the app
+# Make sure not to change this file name or the variable names below,
+# the template is configured to execute 'server' on 'app.py'
+#server = flask.Flask(__name__)
+#server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+#app = dash.Dash(__name__, server=server)
 
 import dash
 import dash_core_components as dcc
@@ -5,8 +25,12 @@ import dash_html_components as html
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import plotly
+import plotly.plotly as py
 import plotly.graph_objs as go 
 from plotly.tools import FigureFactory as FF
+from datetime import datetime
+#plotly.tools.set_credentials_file()
 from flask import Flask
 
 
@@ -240,15 +264,6 @@ def createFigure(passback):
         fig = go.Figure(data=data, layout=layout)
         return fig
     
-md_text ="""
-### Fantasy Bachelorette Scoreboard
-
-![Image of Rachel](https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto)
-
-Here's the new and improved scoreboard app for this season of the Bachelorette!
-p.s. it's still in development with more features coming...
-"""    
-   
  
 server=Flask('dash-bachelorette-rachel')
 app = dash.Dash('dash-bachelorette-rachel',server=server)
@@ -256,12 +271,42 @@ app = dash.Dash('dash-bachelorette-rachel',server=server)
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 #app.css.append_css({"external_url": "https://raw.githubusercontent.com/monaldoj/dash-bachelorette-rachel/master/dash-bachelorette.css"})
 
+md_text = """
+###Fantasy Bachelorette Scoreboard
+
+![Image of Rachel]
+(https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto)
+
+Here's the new and improved scoreboard app for this season of the Bachelorette!
+"""
 
 app.layout = html.Div(children=[
+#    html.H1(children='Fantasy Bachelorette Scoreboard'),
+#
+#    html.Div(children='''
+#        Here's the bachelorette web app.
+#    '''),
+#             
+#    html.Div("https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto"),
 
-    dcc.Markdown(md_text),
+    dcc.Markdown("""###Fantasy Bachelorette Scoreboard
+
+![Image of Rachel]
+(https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto)
+
+Here's the new and improved scoreboard app for this season of the Bachelorette!"""),
 
     dcc.Graph(
+#        id='example-graph',
+#        figure={
+#            'data': [
+#                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+#                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+#            ],
+#            'layout': {
+#                'title': 'Dash Data Visualization'
+#            }
+#        }
         id='bTable',
         figure=createFigure('table')
     ),
@@ -277,6 +322,8 @@ app.layout = html.Div(children=[
     ),
     
 ])
+
+# Put your Dash code here
 
 
 # Run the Dash app
