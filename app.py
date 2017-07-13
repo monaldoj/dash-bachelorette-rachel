@@ -209,8 +209,8 @@ def createFigure(passback):
         print(n)
         for i in range(len(x)):
             trace = go.Bar(
-                    y = y[i],
-                    x = x[i],
+                    y = [y[i]],
+                    x = [x[i]],
                     name = n,
                     showlegend = sl[i],
                     marker = dict(
