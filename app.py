@@ -241,12 +241,12 @@ def createFigure(passback):
         return fig
     
 md_text ="""
-### Fantasy Bachelorette Scoreboard
+## Fantasy Bachelorette Scoreboard
 
 ![Image of Rachel](https://img.buzzfeed.com/buzzfeed-static/static/2017-06/4/11/asset/buzzfeed-prod-fastlane-02/sub-buzz-6780-1496589815-12.jpg?downsize=715:*&output-format=auto&output-quality=auto)
 
-Here's the new and improved scoreboard app for this season of the Bachelorette! :raised_hands:
-p.s. it's still in development with more :fire: features coming...
+# Here's the new and improved scoreboard app for this season of the Bachelorette!
+p.s. it's still in development with more features coming...
 
 """    
    
